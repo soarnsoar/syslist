@@ -88,9 +88,21 @@ etc=[
     'qqWWqqnorm',
     'CMS_eff_prefiring_2016',
 ]
-mystring='--freezeParameters '
 
-#lumi btag ak4 ak8 lepton scalepdf etc
-mystring+=",".join(lumi+btag+ak4+ak8+lepton+scalepdf+etc)
 
-print mystring
+group_dict={}
+
+group_dict['all']=lumi+btag+ak4+ak8+lepton+scalepdf+etc
+group_dict['no_lumi']=btag+ak4+ak8+lepton+scalepdf+etc
+group_dict['no_btag']=lumi+ak4+ak8+lepton+scalepdf+etc
+group_dict['no_ak4']=lumi+btag+ak8+lepton+scalepdf+etc
+group_dict['no_ak8']=lumi+btag+ak4+lepton+scalepdf+etc
+group_dict['no_lepton']=lumi+btag+ak4+ak8+scalepdf+etc
+group_dict['no_scalepdf']=lumi+btag+ak4+ak8+lepton+etc
+group_dict['no_etc']=lumi+btag+ak4+ak8+lepton+scalepdf
+
+for group in group_dict:
+    freeze="--freezeParameters "+(",".join(group_dict[group]))
+    submit='(mkdir -p run_2016_indep_'+group+';cd run_2016_indep_'+group+';combineTool.py -m "115, 120, 125, 130, 140, 160, 180, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3200, 3400, 3600, 3800, 4000, 4200, 4400, 4600, 4800, 5000" -M AsymptoticLimits --rAbsAcc 0 --setParameters sigma=0,fvbf=0.5 --run expected -d ../output/WS2016.indep.root --job-mode "condor" --sub-opts "accounting_group=group_cms" --boundlist ../../scripts/mssm_HWW_boundaries_v5.json '+freeze+') &> logs/submit_'+group+'.log'
+    print '---',group,'---'
+    print submit
