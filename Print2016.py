@@ -1,0 +1,96 @@
+"--setParameterRanges r=0,1"
+"freezeParameters"
+lumi=[
+    'lumi_13TeV_2016',
+    'lumi_13TeV_XY',
+    'lumi_13TeV_BBD',
+    'lumi_13TeV_DB',
+    'lumi_13TeV_GS',
+]
+btag=[
+    'CMS_btag_jes',
+    'CMS_btag_lf',
+    'CMS_btag_hf',
+    'CMS_btag_cferr1',
+    'CMS_btag_cferr2',
+    'CMS_btag_hfstats1_2016',
+    'CMS_btag_hfstats2_2016',
+    'CMS_btag_lfstats1_2016',
+    'CMS_btag_lfstats2_2016',
+]
+lepton=[
+    'CMS_eff_hwwtrigger_2016',
+    'CMS_eff_e_2016',
+    'CMS_scale_e_2016',
+    'CMS_eff_m_2016',
+    'CMS_scale_m_2016',
+]
+ak4=[
+    'CMS_scale_JESAbsolute',
+    'CMS_scale_JESBBEC1',
+    'CMS_scale_JESEC2',
+    'CMS_scale_JESFlavorQCD',
+    'CMS_scale_JESHF',
+    'CMS_scale_JESRelativeBal',
+    'CMS_scale_JESAbsolute_2016',
+    'CMS_scale_JESBBEC1_2016',
+    'CMS_scale_JESEC2_2016',
+    'CMS_scale_JESHF_2016',
+    'CMS_scale_JESRelativeSample_2016',
+    ]
+ak8=[
+    'CMS_ak8jet_scale_JESAbsolute',
+    'CMS_ak8jet_scale_JESBBEC1',
+    'CMS_ak8jet_scale_JESEC2',
+    'CMS_ak8jet_scale_JESFlavorQCD',
+    'CMS_ak8jet_scale_JESHF',
+    'CMS_ak8jet_scale_JESRelativeBal',
+    'CMS_ak8jet_scale_JESAbsolute_2016',
+    'CMS_ak8jet_scale_JESBBEC1_2016',
+    'CMS_ak8jet_scale_JESEC2_2016',
+    'CMS_ak8jet_scale_JESHF_2016',
+    'CMS_ak8jet_scale_JESRelativeSample_2016',
+    'CMS_ak8jet_res_j_2016',
+    'CMS_ak8jet_JMS_2016',
+    'CMS_ak8jet_JMR_2016',
+
+]
+
+scalepdf=[
+    'QCDscale_ggH_ACCEPT',
+    'QCDscale_qqH_ACCEPT',
+    'pdf_Higgs_gg_ACCEPT',
+    'pdf_Higgs_qqbar_ACCEPT',
+    'pdf_Higgs_gg',
+    'pdf_Higgs_qqbar',
+    'QCDscale_ggH',
+    'QCDscale_qqH',
+    'QCDscale_ttbar_ACCEPT',
+    'QCDscale_wjets_ACCEPT',
+    'QCDscale_WpH_ACCEPT',
+    'QCDscale_WmH_ACCEPT',
+    'QCDscale_ZH_ACCEPT',
+    'pdf_ttbar_ACCEPT',
+    'pdf_wjets_ACCEPT',
+    'pdf_WpH_ACCEPT',
+    'pdf_WmH_ACCEPT',
+    'pdf_ZH_ACCEPT',
+]
+etc=[
+    'CMS_eff_Wtag_2016',
+    'CMS_scale_met_2016',
+    'CMS_PU_2016',
+    'PS_ISR',
+    'PS_FSR',
+    'UE_CUET',
+    'mjjshape_2016',
+    'ggWWnorm',
+    'qqWWqqnorm',
+    'CMS_eff_prefiring_2016',
+]
+mystring='--freezeParameters '
+
+#lumi btag ak4 ak8 lepton scalepdf etc
+mystring+=",".join(lumi+btag+ak4+ak8+lepton+scalepdf+etc)
+
+print mystring
