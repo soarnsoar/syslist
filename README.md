@@ -1,0 +1,2 @@
+# syslist
+sysnames
